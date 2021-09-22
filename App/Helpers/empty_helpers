@@ -1,0 +1,14 @@
+# A space to build some general functions for the application
+# Example:
+/*
+*<?php 
+*    namespace App\Helpers;
+*    #Global Unique Identifier
+*    class CreateGUID
+*    {
+*        public static function GetGUID($something){
+*           return $something;
+*        }
+*    }
+*?>
+*/
