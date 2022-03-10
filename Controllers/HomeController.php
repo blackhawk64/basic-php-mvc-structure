@@ -13,6 +13,10 @@ class HomeController extends Controller{
     }
 
     public function Index(){
+        # This is an example of JS injection into specific page
+        $this->View->InitInjections();
+        $this->View->InjectJs("/js/mypersonaljs.js");
+        # This render the associated view
         $this->View->Render('Home/Index');
     }
 }

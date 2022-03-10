@@ -7,7 +7,13 @@
 </footer>
 
 <script src="<?php echo constant('BASE_URL'); ?>wwwroot/js/app.js"></script>
-
+<!--JS Injection-->
+<?php if (count($this->JsDependencies) > 0) : ?>
+    <?php foreach ($this->JsDependencies as $js) : ?>
+        <?php echo $js . "\n"; ?>
+    <?php endforeach ?>
+<?php endif ?>
+<!--JS Injection-->
 </body>
 
 </html>
