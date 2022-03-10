@@ -7,13 +7,12 @@ class Database{
     private $charset;
     private $user;
     private $password;
-
     private $database;
 
     public function __construct(){
         $this->host = constant('HOST');
         $this->charset = constant('CHARSET');
-        $this->db_Backoffice = constant('DB');
+        $this->database = constant('DB');
     }
 
     public function ConnectDatabase(){
@@ -36,5 +35,3 @@ class Database{
         }
     }
 }
-
-?>
