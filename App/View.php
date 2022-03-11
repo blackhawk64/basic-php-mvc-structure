@@ -6,10 +6,13 @@ class View
 {
     private $IndexInjectionJs;
     public $JsDependencies;
+    private $IndexInjectionCss;
+    public $CssDependencies;
 
     public function __construct()
     {
         $this->JsDependencies = array();
+        $this->CssDependencies = array();
     }
 
     public function Render($view)
@@ -27,8 +30,11 @@ class View
     public function InitInjections()
     {
         $this->IndexInjectionJs = 0;
+        $this->IndexInjectionCss = 0;
         unset($this->JsDependencies);
+        unset($this->CssDependencies);
         $this->JsDependencies = array();
+        $this->CssDependencies = array();
     }
 
     public function InjectJs($file)
@@ -38,5 +44,14 @@ class View
         $Injection = "<script src=" . constant('BASE_URL') . "wwwroot" . $file . "></script>";
         $this->JsDependencies[$this->IndexInjectionJs] = $Injection;
         $this->IndexInjectionJs += 1;
+    }
+
+    public function InjectCss($file)
+    {
+        # Concat script tag
+        # Search wwwroot and BASE_URL by default
+        $Injection = "<link href=" . constant('BASE_URL') . "wwwroot" . $file . " rel=\"stylesheet\" type=\"text/css\" />";
+        $this->CssDependencies[$this->IndexInjectionCss] = $Injection;
+        $this->IndexInjectionCss += 1;
     }
 }

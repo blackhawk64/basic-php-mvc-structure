@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <!--CSS Injection-->
+    <?php if (count($this->CssDependencies) > 0) : ?>
+        <?php foreach ($this->CssDependencies as $css) : ?>
+            <?php echo $css . "\n"; ?>
+        <?php endforeach ?>
+    <?php endif ?>
+    <!--CSS Injection-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="<?php echo constant('BASE_URL'); ?>wwwroot/css/app.css">
